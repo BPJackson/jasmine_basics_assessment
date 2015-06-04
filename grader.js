@@ -31,14 +31,21 @@ module.exports = {
     modeScore: function mode (arr) {
       var numMap = {}
       var greatestFreq = 0
-      var mode
+      var mode = []
       arr.forEach(function countMode (n) {
         numMap[n] = (numMap[n] || 0) + 1
         if (greatestFreq <= numMap[n]) {
           greatestFreq = numMap[n]
-          mode = n
         }
       })
-      return +mode
+      if (greatestFreq === 1) {
+        return ('no mode')
+      }
+      for (var prop in numMap) {
+        if (numMap[prop] === greatestFreq) {
+          mode.push(prop)
+        }
+      }
+      return mode.join(' ')
     }
 }

@@ -24,5 +24,5 @@ describe('Find the median of an array', function () {
 })
 describe('Find the mode of an array', function () {
   it('passing', function () {
-    expect(grader.modeScore([82, 92, 75, 91, 92, 89, 95, 100, 86])).toEqual(92)
+    expect(grader.modeScore([82, 92, 75, 91, 92, 89, 95, 100, 86])).toEqual('92')
   })})
