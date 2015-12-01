@@ -10,42 +10,47 @@ module.exports = {
     if (a >= 60 && a < 65) {return 'D-'}
     if (a <= 59) {return 'F'}
   },
-    averageScore: function (arr) {
-      var sum = 0
-      for (var i = 0; i < arr.length; i++) {
-        sum = sum + arr[i]
-      }
-      return (sum / arr.length)
-    },
-    medianScore: function (x) {
-      x.sort(function (a, b) {
-        return a - b
-      })
-      var o = Math.floor(x.length / 2)
-      if (x.length % 2) {
-        return x[o]
-      } else {
-        return (x[o - 1] + x[o]) / 2.0
-      }
-    },
-    modeScore: function mode (arr) {
-      var numMap = {}
-      var greatestFreq = 0
-      var mode = []
-      arr.forEach(function countMode (n) {
-        numMap[n] = (numMap[n] || 0) + 1
-        if (greatestFreq <= numMap[n]) {
-          greatestFreq = numMap[n]
-        }
-      })
-      if (greatestFreq === 1) {
-        return ('no mode')
-      }
-      for (var prop in numMap) {
-        if (numMap[prop] === greatestFreq) {
-          mode.push(prop)
-        }
-      }
-      return mode.join(' ')
+  averageScore: function (arr) {
+    var sum = 0
+    for (var i = 0; i < arr.length; i++) {
+      sum = sum + arr[i]
     }
+    return (sum / arr.length)
+  },
+  medianScore: function (arr) {
+    arr.sort(function (a, b) {
+      return a - b
+      //To compare numbers instead of strings, the compare function can simply subtract b from a. The following function will sort the array ascending:
+    })
+    var o = Math.floor(arr.length / 2)
+    //Gives you a whole number rounded up
+    if (arr.length % 2) {
+      return arr[o]
+    } else {
+      return (arr[o - 1] + arr[o]) / 2.0
+    }
+  },
+  modeScore: function mode (arr) {
+    var numMap = {}
+    var gFreq = 0
+    var mode = []
+    arr.forEach(function countMode (n) {
+      numMap[n] = (numMap[n] || 0) + 1
+      if (n === NaN) {
+        
+      }
+      if (gFreq <= numMap[n]) {
+        gFreq = numMap[n]
+      }
+    })
+    if (gFreq === 1) {
+      return ('no mode')
+    }
+    for (var prop in numMap) {
+      if (numMap[prop] === gFreq) {
+        mode.push(prop)
+      }
+    }
+    return mode.join(' ')
+  }
 }
