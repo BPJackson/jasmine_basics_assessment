@@ -37,7 +37,7 @@ module.exports = {
     arr.forEach(function countMode (n) {
       numMap[n] = (numMap[n] || 0) + 1
       if (n === NaN) {
-        
+        //skip element and not count it 
       }
       if (gFreq <= numMap[n]) {
         gFreq = numMap[n]

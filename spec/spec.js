@@ -6,6 +6,7 @@ describe('Find the letter grade of a number grade', function () {
     expect(grader.letterGrader(89)).toEqual('B+')
     expect(grader.letterGrader(79)).toEqual('C+')
     expect(grader.letterGrader(69)).toEqual('D+')
+    expect(grader.letterGrader(-2)).toEqual("F")
   })
 })
 describe('Find the average of an array', function () {
